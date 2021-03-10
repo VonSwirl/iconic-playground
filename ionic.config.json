@@ -1,0 +1,7 @@
+{
+	"name": "iconic-playground",
+	"integrations": {
+		"capacitor": {}
+	},
+	"type": "react"
+}
