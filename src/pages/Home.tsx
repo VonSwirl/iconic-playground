@@ -1,62 +1,46 @@
 import {
-	IonBadge,
-	IonCheckbox,
+	IonBackButton,
+	IonButtons,
 	IonContent,
+	IonFab,
+	IonFabButton,
 	IonHeader,
-	IonItem,
-	IonLabel,
-	IonList,
-	IonNote,
+	IonIcon,
 	IonPage,
 	IonTitle,
 	IonToolbar,
 } from "@ionic/react";
-import { cars } from "./data";
-import ExploreContainer from "../components/ExploreContainer";
+// import ExploreContainer from "../components/explore-container/ExploreContainer";
+import { add } from "ionicons/icons";
+import { Links } from "../components/links";
 import "./Home.css";
+import { RouteComponentProps } from "react-router";
 
-interface CarListProps {
-	make: string;
-	model: string;
-	year: number;
-}
-
-const CarListItem = (props: CarListProps) => {
-	return (
-		<IonItem>
-			<IonCheckbox slot="start" />
-			<IonLabel>
-				<h1>{props.make}</h1>
-				<IonNote>{props.model}</IonNote>
-			</IonLabel>
-			<IonBadge color="success" slot="end">
-				{props.year}
-			</IonBadge>
-		</IonItem>
-	);
-};
-
-const Home: React.FC = () => {
+const Home = (props: RouteComponentProps) => {
 	return (
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
-					<IonTitle>Car Selector</IonTitle>
+					<IonTitle>Home</IonTitle>
+					<IonButtons slot="start">
+						<IonBackButton />
+					</IonButtons>
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
-				<IonHeader collapse="condense">
+				<Links />
+				{/* <IonHeader collapse="condense">
 					<IonToolbar>
-						<IonTitle size="large">Blank2</IonTitle>
+						<IonTitle size="large">Home#2</IonTitle>
 					</IonToolbar>
-				</IonHeader>
-				<IonList>
-					{cars &&
-						cars.map((car) => (
-							<CarListItem make={car.make} model={car.model} year={car.year} />
-						))}
-				</IonList>
+				</IonHeader> */}
 				{/* <ExploreContainer /> */}
+
+				<IonFab vertical="bottom" horizontal="end" slot="fixed">
+					<IonFabButton onClick={() => props.history.push("/new")}>
+						<IonIcon icon={add} />
+					</IonFabButton>
+				</IonFab>
 			</IonContent>
 		</IonPage>
 	);

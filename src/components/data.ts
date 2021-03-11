@@ -56,3 +56,8 @@ export const cars: ICar[] = [
 		year: 1993,
 	},
 ];
+
+export const links = [
+	{ name: "home", route: "/" },
+	{ name: "IonList examples", route: "/list-example" },
+];
